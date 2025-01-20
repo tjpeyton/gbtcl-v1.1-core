@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.0 <=0.8.26;
+pragma solidity >=0.5.0 <=0.8.28;
 
 import "@openzeppelin/contracts/utils/Strings.sol";
 import {VRFConsumerBaseV2Plus} from "@chainlink/contracts/src/v0.8/vrf/dev/VRFConsumerBaseV2Plus.sol";
@@ -117,7 +117,7 @@ contract Lottery is VRFConsumerBaseV2Plus {
         return lottery[_lotteryId].expiration;
     }
 
-    function getLotteryBalance() external view returns (uint balance) {
+    function getLotteryBalance() external onlyOperator view returns (uint balance) {
         return address(this).balance;
     }
 
